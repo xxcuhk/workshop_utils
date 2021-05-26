@@ -1,38 +1,39 @@
-import python_weather
 from imdb import IMDb
+import pyowm
 
 def get_intent(prediction):
     return prediction["intent"]["intentName"]
 
 def get_entity_type(prediction):
-    if len(prediction["slots"] > 0):
+    if (len(prediction["slots"]) > 0):
         return prediction["slots"][0]["entity"]
     else:
         return None
 
 def get_entity_value(prediction):
-    if len(prediction["slots"] > 0):
+    if (len(prediction["slots"]) > 0):
         return prediction["slots"][0]["value"]["value"]
     else:
         return None
 
 
-async def get_current_weather(city, raw = False):
+async def get_weather(city, raw = False):
+    owm = pyowm.OWM('b91f88d44ab772a15cfb66d6d3b69cca')
+    mgr = owm.weather_manager()
 
-    # declare the client. format defaults to metric system (celcius, km/h, etc.)
-    client = python_weather.Client()
-
-    # fetch a weather forecast from a city
-    weather = await client.find(city)
-
-    # returns the current city temperature (int)
+    # Search for current weather in London (Great Britain) and get details
+    observation = mgr.weather_at_place('Hong Kong')
+    w = observation.weather
     if raw:
-        return {"CurrentTemp": weather.current.temperature, "SkyCondition": weather.current.sky_text}
+        return {"CurrentTemp": weather.temperature("Celcius"), "SkyCondition": weather.detailed_status}
     else:
-        print("The current temperature is" + str(weather.current.temperature) + "degrees Celcius")
-        print("The weather condition is" + str(weather.current.sky_text))
+        print("The current temperature is" + str(weather.temperature("Celcius")) + "degrees Celcius")
+        print("The weather condition is" + str(weather.detailed_status))
 
     await client.close()
+
+
+
 def get_movie_rating(movie_name):
     ia = IMDb()
 
