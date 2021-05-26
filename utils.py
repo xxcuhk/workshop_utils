@@ -17,7 +17,7 @@ def get_entity_value(prediction):
         return None
 
 
-def get_current_weather(city, raw = False):
+async def get_current_weather(city, raw = False):
 
     # declare the client. format defaults to metric system (celcius, km/h, etc.)
     client = python_weather.Client()
