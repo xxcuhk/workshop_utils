@@ -41,9 +41,11 @@ type: intent
 name: get_director
 
 slots:
-
+  - name: movie_name
+    entity: movie_name
 
 utterances:
+  - Who directed [movie_name] (Fast and the furious)?
 
 
 # Write the get_cast intent below
@@ -56,6 +58,7 @@ slots:
 
 
 utterances:
+  - Who acted in the movie [movie_name] (Batman)?
 
 # Write the get_weather intent below
 
@@ -67,3 +70,5 @@ utterances:
 ---
 type: entity
 name: city
+
+values:
