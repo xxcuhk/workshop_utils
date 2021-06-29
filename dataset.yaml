@@ -1,4 +1,24 @@
+# find_weather intent
+---
+type: intent
+name: get_weather
+slots:
+  - name: city
+    entity: city
+
+utterances:
+  - How is the weather in [city](London)?
+  - What is the weather in [city](New York)?
+
+# city entity
+---
+type: entity
+name: city
+values:
+  - Hong Kong
+
 # tell_joke intent
+
 ---
 type: intent
 name: tell_joke
@@ -8,6 +28,7 @@ utterances:
   - I'm bored, entertain me with a joke
 
 # get_rating intent
+
 ---
 type: intent
 name: get_rating
@@ -17,58 +38,36 @@ slots:
 
 utterances:
   - How good is the movie [movie_name] (Batman)?
-  - Is the movie [movie_name] (Deadpool) any good?
-  - How good is the movie [movie_name] (Ip Man)?
   - I want to know the movie rating for [movie_name] (Fast and the furious).
 
-# movie_name entity
+# get_director intent
+---
+type: intent
+name: get_director
+slots:
+  - name: movie_name
+    entity: movie_name
+
+utterances:
+  - Who directed [movie_name] (Tenet)?
+  - I want to know the director of the movie [movie_name] (Ip Man).
+
+# get_cast intent
+---
+type: intent
+name: get_cast
+slots:
+  - name: movie_name
+    entity: movie_name
+
+utterances:
+  - Who acted in movie the [movie_name] (Joker)?
+  - What is the cast for the movie [movie_name] (The boat people)
+
+# city entity
 ---
 type: entity
 name: movie_name
 values:
   - Joker
   - The Dark Knight
-  - Fast and the furious
-  - Ip Man
-  - The boat people
-  - Deadpool
-  - Tenet
-
-# Write the get_director intent below
-
----
-type: intent
-name: get_director
-
-slots:
-  - name: movie_name
-    entity: movie_name
-
-utterances:
-  - Who directed [movie_name] (Fast and the furious)?
-
-
-# Write the get_cast intent below
-
----
-type:
-name:
-
-slots:
-
-
-utterances:
-  - Who acted in the movie [movie_name] (Batman)?
-
-# Write the get_weather intent below
-
----
-
-
-
-# Write the city entity below
----
-type: entity
-name: city
-
-values:
