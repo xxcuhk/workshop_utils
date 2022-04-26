@@ -17,7 +17,7 @@ def get_entity_value(prediction):
         return None
 
 
-def get_city_weather(city, raw = False):
+def get_current_weather(city, raw = False):
     owm = pyowm.OWM('b91f88d44ab772a15cfb66d6d3b69cca')
     mgr = owm.weather_manager()
 
