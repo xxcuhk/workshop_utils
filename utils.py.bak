@@ -1,5 +1,5 @@
 from imdb import IMDb
-import pyowm
+import pyowm  
 
 def get_intent(prediction):
     return prediction["intent"]["intentName"]
