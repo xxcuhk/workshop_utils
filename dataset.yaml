@@ -29,10 +29,12 @@ utterances:
 type: intent
 name: get_rating
 slots:
-  - name: movie_name
-    entity: movie_name
+  - name: 
+    entity: 
 
 utterances:
+  - 
+  - 
 
 
 # please complete the following intent
@@ -40,14 +42,14 @@ utterances:
 ---
 type: intent
 name: get_director
+slots:
+  - name: 
+    entity: 
 
+utterances:
+  - 
+  - 
 
-# please complete the following intent
-# get_cast intent
----
-type: intent
-name: get_cast
-  
 
 # city entity
 ---
@@ -67,3 +69,8 @@ values:
 ---
 type: entity
 name: movie_name
+values:
+  - 
+  - 
+  - 
+  - 
